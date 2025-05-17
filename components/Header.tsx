@@ -1,18 +1,53 @@
-import { View, Text, StyleSheet, Image } from "react-native"
+import { View, StyleSheet, Image } from "react-native"
 import { H3, H6 } from "tamagui"
+import { useTheme } from "../contexts/ThemeContext"
 
 export const Header = () => {
+  const { currentTheme, drivingBehavior } = useTheme()
+  
+  const getLogo = () => {
+    switch(drivingBehavior) {
+      case 'calm':
+        return require('../assets/logo_calmo_sem_texto_sem_fundo.png')
+      case 'moderate':
+        return require('../assets/logo_moderado_sem_texto_sem_fundo.png')
+      case 'aggressive':
+      default:
+        return require('../assets/logo_sem_texto_sem_fundo.png')
+    }
+  }
+  
   return (
-    <View style={styles.header}>
+    <View style={[
+      styles.header, 
+      { 
+        backgroundColor: currentTheme.colors.primary, 
+        boxShadow: `0 0 10px 0 ${currentTheme.colors.shadow}` 
+      }
+    ]}>
       <View style={styles.logoContainer}>
         <Image 
-          source={require('../assets/logo_sem_texto_sem_fundo.png')} 
+          source={getLogo()} 
           style={styles.logo} 
           resizeMode="contain"
         />
         <View>
-          <H3 style={styles.title}>Aceleradio.ai</H3>
-          <H6 style={styles.subtitle}>Your AI-powered driving assistant</H6>
+          <H3 style={[
+            styles.title,
+            { 
+              color: currentTheme.colors.background 
+            }
+          ]}>
+            Aceleradio.ai
+          </H3>
+          <H6 style={[
+            styles.subtitle, 
+            { 
+              color: currentTheme.colors.background 
+            }
+          ]}>
+            Your AI-powered driving assistant
+          </H6>
         </View>
       </View>
     </View>
@@ -26,10 +61,8 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 16,
     paddingHorizontal: 12,
-    backgroundColor: '#b91c1c',
     alignItems: 'center',
     zIndex: 10,
-    boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.5)',
   },
   logoContainer: {
     display: 'flex',
@@ -47,10 +80,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 28,
-    color: '#fff',
   },
   subtitle: {
     fontSize: 16,
-    color: '#fff',
   }
 })
