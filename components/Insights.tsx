@@ -1,12 +1,10 @@
 import { View, Text } from "react-native"
 
-export const MusicPlayer = () => {
-  
-  
+export const Insights = () => {
   return (
     <View>
       <Text>
-        Músicas aqui :)
+        Insights
       </Text>
     </View>
   )

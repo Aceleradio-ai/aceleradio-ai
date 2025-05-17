@@ -1,12 +1,12 @@
 export type Music = {
   id: number
   title: string
-  uri: string
+  uri: string | undefined
 }
 
-export type DrivingMode = "calmo" | "moderado" | "agressivo"
+export type DrivingModeT = "calmo" | "moderado" | "agressivo"
 
 export interface DrivingData {
   speed: number
-  drivingMode: DrivingMode 
+  drivingMode: DrivingModeT 
 }
