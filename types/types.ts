@@ -4,7 +4,7 @@ export type Music = {
   uri: string | undefined
 }
 
-export type DrivingModeT = "calmo" | "moderado" | "agressivo"
+export type DrivingModeT = "calm" | "moderate" | "aggressive"
 
 export interface DrivingData {
   speed: number
