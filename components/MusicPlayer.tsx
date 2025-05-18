@@ -14,7 +14,7 @@ export function MusicPlayer() {
   const [position, setPosition] = useState(0)
   const [duration, setDuration] = useState(1)
   const [currentMode, setCurrentMode] = useState<DrivingMode>(DRIVING_MODES.CALM)
-  const [wsService] = useState(() => new WebSocketService('ws://localhost:1025'))
+  const [wsService] = useState(() => new WebSocketService('ws://ec2-18-206-89-187.compute-1.amazonaws.com:1025'))
   const isChangingTrack = useRef(false)
   const lastModeRef = useRef<DrivingMode>(DRIVING_MODES.CALM)
   const soundRef = useRef<Audio.Sound | null>(null)
