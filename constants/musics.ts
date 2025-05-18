@@ -6,7 +6,7 @@ export const DRIVING_MODES = {
 } as const;
 
 export const DRIVING_MODE_NAMES = {
-  [DRIVING_MODES.CALM]: 'Calmo',
+  [DRIVING_MODES.CALM]: 'Devagar',
   [DRIVING_MODES.MODERATE]: 'Moderado',
   [DRIVING_MODES.HIGH]: 'Alto',
   [DRIVING_MODES.VERY_HIGH]: 'Muito Alto',

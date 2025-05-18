@@ -1,22 +1,27 @@
 import { View, Text, StyleSheet, Image } from "react-native"
 import { useTheme } from "../contexts/ThemeContext"
 
-// Predefined messages for each driving mode
 const drivingMessages = {
   calm: [
     "Ótimo trabalho! Sua condução está calma e segura.",
     "Continue assim! Você está dirigindo de forma excelente.",
-    "Sua condução tranquila economiza combustível e reduz o desgaste do veículo."
+    "Sua condução tranquila economiza combustível e reduz o desgaste do veículo.",
+    "Talvez você chegue atrasado.",
+    "Você está dirigindo muito devagar."
   ],
   moderate: [
     "Atenção! Você está começando a acelerar mais que o necessário.",
     "Cuidado com a velocidade em curvas. Mantenha a calma.",
-    "Tente manter uma distância segura do veículo à frente."
+    "Você tá se empolgando!",
+    "Deve ser um bom dia para você!",
+
   ],
   aggressive: [
     "ALERTA! Você ultrapassou o limite de velocidade!",
     "Reduza a velocidade imediatamente! Sua condução está perigosa.",
-    "Freadas bruscas detectadas. Por favor, dirija com mais cuidado."
+    "Freadas bruscas detectadas. Por favor, dirija com mais cuidado.",
+    "Você tá se empolgando!",
+    "Agora vai.",
   ]
 }
 
