@@ -4,7 +4,7 @@ import { Audio, AVPlaybackStatus } from 'expo-av'
 import { Text } from 'tamagui'
 import { WebSocketService } from '../services/WebSocketService'
 import { useTheme } from '../contexts/ThemeContext'
-import { DRIVING_MODES, DRIVING_MODE_NAMES, DRIVING_MODE_MUSIC } from '../constants/musics'
+import { DRIVING_MODES, DRIVING_MODE_NAMES, DRIVING_MODE_MUSIC, TRACK_INFO } from '../constants/musics'
 
 type DrivingMode = typeof DRIVING_MODES[keyof typeof DRIVING_MODES]
 
@@ -14,7 +14,7 @@ export function MusicPlayer() {
   const [position, setPosition] = useState(0)
   const [duration, setDuration] = useState(1)
   const [currentMode, setCurrentMode] = useState<DrivingMode>(DRIVING_MODES.CALM)
-  const [wsService] = useState(() => new WebSocketService('ws://ec2-18-206-89-187.compute-1.amazonaws.com:1025'))
+  const [wsService] = useState(() => new WebSocketService('ws://ec2-54-85-216-228.compute-1.amazonaws.com:1025'))
   const isChangingTrack = useRef(false)
   const lastModeRef = useRef<DrivingMode>(DRIVING_MODES.CALM)
   const soundRef = useRef<Audio.Sound | null>(null)
@@ -163,13 +163,28 @@ export function MusicPlayer() {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`
   }
 
+  const currentTrackInfo = TRACK_INFO[currentMode]
+
   return (
     <View style={[styles.container, { backgroundColor: currentTheme.colors.background }]}>
-      <Text style={styles.title}>Player de Música</Text>
-      <Text style={styles.modeText}>Modo: {DRIVING_MODE_NAMES[currentMode]}</Text>
+      <Text style={[styles.title, { color: currentTheme.colors.text }]}>Player de Música</Text>
+      <Text style={[styles.modeText, { color: currentTheme.colors.text }]}>
+        Modo: {DRIVING_MODE_NAMES[currentMode]}
+      </Text>
+      
+      <View style={styles.trackInfo}>
+        <Text style={[styles.trackTitle, { color: currentTheme.colors.text }]}>
+          {currentTrackInfo.title}
+        </Text>
+        <Text style={[styles.trackArtist, { color: currentTheme.colors.subtext }]}>
+          {currentTrackInfo.artist}
+        </Text>
+      </View>
       
       <View style={styles.progressContainer}>
-        <Text style={styles.timeText}>{formatTime(position)}</Text>
+        <Text style={[styles.timeText, { color: currentTheme.colors.subtext }]}>
+          {formatTime(position)}
+        </Text>
         <View style={[styles.progressBar, { backgroundColor: currentTheme.colors.border }]}>
           <View 
             style={[
@@ -181,7 +196,9 @@ export function MusicPlayer() {
             ]} 
           />
         </View>
-        <Text style={styles.timeText}>{formatTime(duration)}</Text>
+        <Text style={[styles.timeText, { color: currentTheme.colors.subtext }]}>
+          {formatTime(duration)}
+        </Text>
       </View>
     </View>
   )
@@ -204,6 +221,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 16,
     textAlign: 'center',
+  },
+  trackInfo: {
+    marginBottom: 16,
+    alignItems: 'center',
+  },
+  trackTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  trackArtist: {
+    fontSize: 14,
   },
   progressContainer: {
     flexDirection: 'row',

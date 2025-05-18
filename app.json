@@ -19,7 +19,9 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.aceleradio.ai",
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       }
     },
     "android": {
@@ -47,8 +49,9 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "your-project-id"
+        "projectId": "87aa8a36-a101-4146-8bb7-a88124e728ad"
       }
-    }
+    },
+    "owner": "plxulo"
   }
 }
