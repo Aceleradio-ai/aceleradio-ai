@@ -46,7 +46,7 @@ export const Header = () => {
               color: currentTheme.colors.background 
             }
           ]}>
-            Your AI-powered driving assistant
+            Seu assistente de direção com IA
           </H6>
         </View>
       </View>

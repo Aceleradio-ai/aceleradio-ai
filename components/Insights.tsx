@@ -1,20 +1,53 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Image } from "react-native"
 import { useTheme } from "../contexts/ThemeContext"
 
+// Predefined messages for each driving mode
+const drivingMessages = {
+  calm: [
+    "Ótimo trabalho! Sua condução está calma e segura.",
+    "Continue assim! Você está dirigindo de forma excelente.",
+    "Sua condução tranquila economiza combustível e reduz o desgaste do veículo."
+  ],
+  moderate: [
+    "Atenção! Você está começando a acelerar mais que o necessário.",
+    "Cuidado com a velocidade em curvas. Mantenha a calma.",
+    "Tente manter uma distância segura do veículo à frente."
+  ],
+  aggressive: [
+    "ALERTA! Você ultrapassou o limite de velocidade!",
+    "Reduza a velocidade imediatamente! Sua condução está perigosa.",
+    "Freadas bruscas detectadas. Por favor, dirija com mais cuidado."
+  ]
+}
+
 export const Insights = () => {
-  const { currentTheme } = useTheme()
+  const { currentTheme, drivingBehavior } = useTheme()
+  
+  // Get a random message for the current driving mode
+  const getRandomMessage = () => {
+    const messages = drivingMessages[drivingBehavior]
+    const randomIndex = Math.floor(Math.random() * messages.length)
+    return messages[randomIndex]
+  }
   
   return (
     <View style={[styles.container, { 
       backgroundColor: currentTheme.colors.accent,
       borderColor: currentTheme.colors.border
     }]}>
-      <Text style={[styles.title, { color: currentTheme.colors.text }]}>
-        Driving Insights
-      </Text>
-      <Text style={[styles.content, { color: currentTheme.colors.text }]}>
-        Your driving analytics and insights will appear here
-      </Text>
+      <View style={styles.messageContainer}>
+        <View style={[styles.iconContainer, { backgroundColor: currentTheme.colors.primary }]}>
+          <Text style={styles.iconText}>AI</Text>
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={[styles.title, { color: currentTheme.colors.text }]}>
+            Assistente IA
+          </Text>
+          <Text style={[styles.content, { color: currentTheme.colors.text }]}>
+            {getRandomMessage()}
+          </Text>
+        </View>
+      </View>
     </View>
   )
 }
@@ -27,12 +60,33 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 20,
   },
-  title: {
-    fontSize: 20,
+  messageContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconContainer: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 16,
+  },
+  iconText: {
+    color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 8,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
   },
   content: {
-    fontSize: 16,
+    fontSize: 14,
+    lineHeight: 20,
   }
 })

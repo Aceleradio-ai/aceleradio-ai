@@ -10,10 +10,10 @@ export const MusicPlayer = () => {
       borderColor: currentTheme.colors.border
     }]}>
       <Text style={[styles.title, { color: currentTheme.colors.background }]}>
-        Music Player
+        Player de Música
       </Text>
       <Text style={[styles.subtitle, { color: currentTheme.colors.background }]}>
-        Your music will play here based on your driving behavior
+        Suas músicas serão tocadas aqui com base no seu modo de condução
       </Text>
     </View>
   )
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 12,
     borderWidth: 1,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   title: {
@@ -35,6 +35,5 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    textAlign: 'center',
   }
 })
