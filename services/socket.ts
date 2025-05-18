@@ -1,2 +1,2 @@
 import { io } from "socket.io-client"
-export const socket = io("http://backend_url")
+export const socket = io("ws://localhost:1025")

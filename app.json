@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "aceleradio-ai",
+    "name": "Aceleradio.ai",
     "slug": "aceleradio-ai",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,8 +12,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.aceleradio.ai",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -25,20 +32,22 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS"
       ],
-      "package": "com.plxulo.aceleradioai"
+      "package": "com.aceleradio.ai"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       [
-        "expo-audio",
-        {}
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
       ]
     ],
     "extra": {
       "eas": {
-        "projectId": "87aa8a36-a101-4146-8bb7-a88124e728ad"
+        "projectId": "your-project-id"
       }
     }
   }
