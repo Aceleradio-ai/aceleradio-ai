@@ -3,9 +3,9 @@ import { useTheme } from "../contexts/ThemeContext"
 import { ThemeType, themes } from "../constants/themes"
 
 const drivingModeMap: Record<ThemeType, string> = {
-  calm:       "Calmo",
-  moderate:   "Moderado",
-  aggressive: "Agressivo"
+  calm:       "Desanimado",
+  moderate:   "Feliz",
+  aggressive: "Nervoso"
 }
 
 export const DrivingMode = () => {
@@ -28,9 +28,8 @@ export const DrivingMode = () => {
             { backgroundColor: themes.calm.colors.primary },
             drivingBehavior === 'calm' && styles.activeButton
           ]}
-          onPress={() => handleDrivingMode('calm')}
         >
-          <Text style={styles.buttonText}>Calmo</Text>
+          <Text style={styles.buttonText}>Desanimado</Text>
         </TouchableOpacity>
         
         <TouchableOpacity 
@@ -39,9 +38,8 @@ export const DrivingMode = () => {
             { backgroundColor: themes.moderate.colors.primary },
             drivingBehavior === 'moderate' && styles.activeButton
           ]}
-          onPress={() => handleDrivingMode('moderate')}
         >
-          <Text style={styles.buttonText}>Moderado</Text>
+          <Text style={styles.buttonText}>Feliz</Text>
         </TouchableOpacity>
         
         <TouchableOpacity 
@@ -50,9 +48,8 @@ export const DrivingMode = () => {
             { backgroundColor: themes.aggressive.colors.primary },
             drivingBehavior === 'aggressive' && styles.activeButton
           ]}
-          onPress={() => handleDrivingMode('aggressive')}
         >
-          <Text style={styles.buttonText}>Agressivo</Text>
+          <Text style={styles.buttonText}>Nervoso</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -1,17 +1,3 @@
-export const musics = [
-  { id: 1, title: 'Suave', uri: require('../assets/calma.mp3') },
-  { id: 2, title: 'Moderado', uri: require('../assets/moderada.mp3') },
-  { id: 3, title: 'Rápido', uri: require('../assets/agressiva.mp3') },
-]
-
-const agressiva = {
-  url: require('../assets/agressiva.mp3'),
-  title: 'Psychosocial',
-  artist: 'Slipknot',
-  artwork: '',
-  duration: 56
-}
-
 export const DRIVING_MODES = {
   CALM: 0,
   MODERATE: 1,
@@ -20,10 +6,10 @@ export const DRIVING_MODES = {
 } as const;
 
 export const DRIVING_MODE_NAMES = {
-  [DRIVING_MODES.CALM]: 'calmo',
-  [DRIVING_MODES.MODERATE]: 'moderado',
-  [DRIVING_MODES.HIGH]: 'alto',
-  [DRIVING_MODES.VERY_HIGH]: 'muito alto',
+  [DRIVING_MODES.CALM]: 'Desanimado',
+  [DRIVING_MODES.MODERATE]: 'Feliz',
+  [DRIVING_MODES.HIGH]: 'Nervoso',
+  [DRIVING_MODES.VERY_HIGH]: 'Nervoso',
 } as const;
 
 export const DRIVING_MODE_MUSIC = {

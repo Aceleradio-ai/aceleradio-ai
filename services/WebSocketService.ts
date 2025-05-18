@@ -39,7 +39,7 @@ export class WebSocketService {
         try {
           console.log('Received car data:', data);
           this.handleMessage(data);
-          // Call all registered handlers for carData
+
           const handlers = this.eventHandlers.get('carData') || [];
           handlers.forEach(handler => handler(data.currentDriverLevel));
         } catch (error) {

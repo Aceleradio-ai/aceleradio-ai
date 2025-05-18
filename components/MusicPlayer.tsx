@@ -5,7 +5,6 @@ import { Text } from 'tamagui'
 import { WebSocketService } from '../services/WebSocketService'
 import { useTheme } from '../contexts/ThemeContext'
 import { DRIVING_MODES, DRIVING_MODE_NAMES, DRIVING_MODE_MUSIC } from '../constants/musics'
-import { themes } from '../constants/themes'
 
 type DrivingMode = typeof DRIVING_MODES[keyof typeof DRIVING_MODES]
 
@@ -83,7 +82,6 @@ export function MusicPlayer() {
       isChangingTrack.current = true
       console.log('Starting track change to mode:', mode)
 
-      // Stop and unload current sound
       if (soundRef.current) {
         console.log('Stopping current sound...')
         await stopAndUnloadSound(soundRef.current)
@@ -91,7 +89,6 @@ export function MusicPlayer() {
         setSound(null)
       }
 
-      // Update theme based on mode
       const newTheme = getThemeForMode(mode)
       setDrivingBehavior(newTheme)
 
