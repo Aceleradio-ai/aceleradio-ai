@@ -18,39 +18,39 @@ export const themes: Record<ThemeType, Theme> = {
   calm: {
     name: 'calm',
     colors: {
-      primary: '#1e40af',     
-      secondary: '#3b82f6',   
-      background: '#f0f9ff',  
-      text: '#1e293b',        
-      subtext: '#64748b',     
-      accent: '#0ea5e9',      
-      border: '#bfdbfe',      
+      primary: '#1e40af',     // Deep blue
+      secondary: '#3b82f6',   // Bright blue
+      background: '#f0f9ff',  // Light blue background
+      text: '#1e293b',        // Dark slate
+      subtext: '#64748b',     // Slate gray
+      accent: '#0ea5e9',      // Sky blue
+      border: '#bfdbfe',      // Light blue border
       shadow: 'rgba(59, 130, 246, 0.3)',
     },
   },
   moderate: {
     name: 'moderate',
     colors: {
-      primary: '#b45309',     
-      secondary: '#f59e0b',   
-      background: '#fffbeb',  
-      text: '#1e293b',        
-      subtext: '#64748b',     
-      accent: '#fbbf24',      
-      border: '#fef3c7',      
-      shadow: 'rgba(245, 158, 11, 0.3)',
+      primary: '#15803d',     // Forest green
+      secondary: '#22c55e',   // Emerald green
+      background: '#f0fdf4',  // Light green background
+      text: '#1e293b',        // Dark slate
+      subtext: '#64748b',     // Slate gray
+      accent: '#4ade80',      // Light green
+      border: '#bbf7d0',      // Mint green border
+      shadow: 'rgba(34, 197, 94, 0.3)',
     },
   },
   aggressive: {
     name: 'aggressive',
     colors: {
-      primary: '#b91c1c',     
-      secondary: '#ef4444',   
-      background: '#fef2f2',  
-      text: '#1e293b',        
-      subtext: '#64748b',     
-      accent: '#f87171',      
-      border: '#fee2e2',      
+      primary: '#b91c1c',     // Deep red
+      secondary: '#ef4444',   // Bright red
+      background: '#fef2f2',  // Light red background
+      text: '#1e293b',        // Dark slate
+      subtext: '#64748b',     // Slate gray
+      accent: '#f87171',      // Light red
+      border: '#fee2e2',      // Pink border
       shadow: 'rgba(239, 68, 68, 0.3)',
     },
   },

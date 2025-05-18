@@ -7,9 +7,9 @@ export const DrivingModeImage = () => {
   const getLargeImage = () => {
     switch(drivingBehavior) {
       case 'calm':
-        return require('../assets/logo_calmo_sem_texto_sem_fundo.png')
+        return require('../assets/logo_desanimado_sem_texto_sem_fundo.png')
       case 'moderate':
-        return require('../assets/logo_moderado_sem_texto_sem_fundo.png')
+        return require('../assets/logo_feliz_sem_texto_sem_fundo.png')
       case 'aggressive':
       default:
         return require('../assets/logo_sem_texto_sem_fundo.png')

@@ -3,7 +3,7 @@ import { useTheme } from "../contexts/ThemeContext"
 import { ThemeType, themes } from "../constants/themes"
 
 const drivingModeMap: Record<ThemeType, string> = {
-  calm:       "Desanimado",
+  calm:       "Devagar",
   moderate:   "Feliz",
   aggressive: "Nervoso"
 }
@@ -29,7 +29,7 @@ export const DrivingMode = () => {
             drivingBehavior === 'calm' && styles.activeButton
           ]}
         >
-          <Text style={styles.buttonText}>Desanimado</Text>
+          <Text style={styles.buttonText}>Devagar</Text>
         </TouchableOpacity>
         
         <TouchableOpacity 
